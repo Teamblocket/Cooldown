@@ -70,7 +70,7 @@ class Main extends PluginBase{
      */
     public function inCooldown(Player $player, string $cooldown, int $seconds){
         $postedtime = $this->getPlayerCooldown($player, $cooldown);
-        if($postedtime !== nulll && time() > $postedtime + $seconds){
+        if($postedtime !== null && time() > $postedtime + $seconds){
             return true;
         }
     }
