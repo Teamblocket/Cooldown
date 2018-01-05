@@ -4,4 +4,5 @@ branches:
 projects:
   Cooldown:
     path: ""
+    icon: ".poggit/Cooldown.png"
 ...
