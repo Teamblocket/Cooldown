@@ -1,8 +1,0 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Teamblocket/Cooldown
-branches:
-- master
-projects:
-  Cooldown:
-    path: ""
-    icon: ".poggit/Cooldown.png"
-...
