@@ -5,25 +5,42 @@ A Cooldown API for all you noobs!
 
 First were going get the plugin
 ```
-$plugin = $this->getServer()->getPluginManager()->getPlugin("CooldownAPI");
+$plugin = $this->getServer()->getPluginManager()->getPlugin("CoolDownAPI");
 ```
 
 Once you have the plugin you can now run these functions in your own plugin!
 ```
 // Adding a cooldown to a player!
+
 /** @var \pocketmine\Player */
-$player;
-$cooldown = 'AcoolDownName'; // This will be the cooldowns name , so this will be the name you use to return this cooldown!
+$cooldown = 'AcoolDownName'; // This is the cooldown's name
+$player = 'playersName'; // The player's username which you want to add the cooldown
 
-$plugin->setPlayerCooldown($player, $cooldown); // Sets $player a cooldown with the name $cooldown , the timestamp is automatically done by the plugin!
+$plugin->setCooldown($player, $cooldown); // Adds a cooldown to $player, the cooldown's name is $cooldown
 
-$plugin->getPlayerCooldown($player, $cooldown); // Returns the time() the cooldown $cooldown was created!
+$class = $plugin->getCooldown($player, $cooldown); // Returns the CoolDown class!
+// Once you have the cooldown class you can return the time the cooldown was posted by doing $class->getPostedTime()
 
-$plugin->removePlayerCooldown($player, $cooldown); // Deletes the cooldown $cooldown from player $player!
+// If you want to check if a player is in a cooldown still just do
+/** @var \CoolDown\CoolDown */
+$class = $plugin->getCooldown($player, $cooldown); // Of course you need to create the cooldown first!
+if($class->inCooldown(10)){
+    print('Still in cooldown');
+ }
 
-/** @var int */
-$seconds = 5;
-$plugin->inCooldown($player, $cooldown, $seconds); // checks if the plyer cooldown is still in the 5 seconds!
+$plugin->removeCooldown($player, $cooldown); // Deletes the cooldown $cooldown from player $player!
+
+//If you want it even easier , CoolDownAPI has a custom player class to set, remove and get cooldowns
+
+// Start off with getting a player instance
+
+$player->setCooldown('CooldownsName!');
+
+if($player->getCooldown('CooldownsName!')->inCooldown(10)){
+  $player->sendMessage('Still in cooldown');
+}
+
+$player->removeCooldown('CooldownsName!');
 ```
 
 Any issues contact me via Twitter(@Ang3lD3vs) or on my Discord(Angel#1062)!
