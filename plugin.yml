@@ -1,5 +1,6 @@
-name: Cooldown
-main: Cooldown\Main
+name: CoolDownAPI
+main: CoolDown\CoolDownAPI
+api: [3.0.0-ALPHA10, 3.0.0-ALPHA11]
+version: 2.0.0
+description: A plugin to manage cooldowns!
 author: Angel
-api: [3.0.0-ALPHA9, 3.0.0-ALPHA10]
-version: 1.0.0
